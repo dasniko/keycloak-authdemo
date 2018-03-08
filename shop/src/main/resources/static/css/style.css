@@ -1,0 +1,11 @@
+body {
+    padding-top: 50px;
+}
+
+.text-center h1 {
+    font-size: 68px;
+}
+
+.text-center span.glyphicon {
+    font-size: 20em;
+}
