@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
 @Controller
 public class HomeController {

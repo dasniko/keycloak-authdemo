@@ -5,7 +5,6 @@ import dasniko.authdemo.shop.products.Product;
 import dasniko.authdemo.shop.products.ProductRepository;
 import dasniko.authdemo.shop.products.StocksService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
-@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ShopController {
@@ -42,9 +40,7 @@ public class ShopController {
 
     private void getStocks(List<Product> products) {
         Map<String, Integer> stocks = stocksService.getStocks(products);
-        products.forEach(p -> {
-            p.setStock(stocks.get(p.getId()));
-        });
+        products.forEach(p -> p.setStock(stocks.get(p.getId())));
     }
 
     private void populateModel(Model model) {

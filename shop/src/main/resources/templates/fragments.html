@@ -29,12 +29,12 @@
             <ul class="nav navbar-nav navbar-right" th:if="${#httpServletRequest.userPrincipal != null}">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        <span class="glyphicon glyphicon-user"/>&nbsp;
-                        <span th:text="${#httpServletRequest.userPrincipal.name}"></span>&nbsp;
+                        <span class="glyphicon glyphicon-user"></span>
+                        <span th:text="${#httpServletRequest.userPrincipal.name}"></span>
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"/> Logout</a></li>
+                        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </li>
             </ul>

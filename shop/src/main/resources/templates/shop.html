@@ -22,7 +22,7 @@
                 <tbody>
                 <tr th:each="p : ${productList}">
                     <td>
-                        <img th:src="'https://loremflickr.com/150/100/?random=' + ${p.id}" />
+                        <img th:src="'https://loremflickr.com/150/100/' + ${p.title} + '?lock=' + ${p.id}" />
                     </td>
                     <td th:text="${p.title}"></td>
                     <td th:text="${p.stock}"></td>

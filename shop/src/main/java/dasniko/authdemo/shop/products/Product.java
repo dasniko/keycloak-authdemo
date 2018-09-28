@@ -5,19 +5,19 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
+
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
+@Getter
 @ToString
 @RequiredArgsConstructor
 public class Product {
-    @Getter
+
     private final String id;
-    @Getter
     private final String title;
-    @Getter
-    private final double price;
-    @Getter
+    private final BigDecimal price;
     @Setter
     private int stock;
 }

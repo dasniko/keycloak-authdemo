@@ -3,26 +3,27 @@ package dasniko.authdemo.shop.cart;
 import dasniko.authdemo.shop.products.Product;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.WebApplicationContext;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
-@Slf4j
 @Component
 @RequiredArgsConstructor
+@Scope(scopeName = WebApplicationContext.SCOPE_SESSION, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class Cart {
 
     private final ShippingService shippingService;
 
     @Getter
     private List<CartEntry> entries = new ArrayList<>();
-    private double shipping;
 
     public void addToCart(Product product) {
         Optional<CartEntry> entry = findEntry(product.getId());
@@ -35,7 +36,7 @@ public class Cart {
     }
 
     public double getSum() {
-        return entries.stream().mapToDouble(CartEntry::getPrice).sum();
+        return entries.stream().mapToDouble(e -> e.getPrice().doubleValue()).sum();
     }
 
     public double getShipping() {

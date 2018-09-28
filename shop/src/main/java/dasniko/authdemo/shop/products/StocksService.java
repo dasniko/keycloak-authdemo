@@ -1,7 +1,7 @@
 package dasniko.authdemo.shop.products;
 
+import dasniko.authdemo.shop.authz.KeycloakClientAuthzRestTemplate;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +10,8 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
-@Slf4j
 @Component
 @RequiredArgsConstructor
 public class StocksService {

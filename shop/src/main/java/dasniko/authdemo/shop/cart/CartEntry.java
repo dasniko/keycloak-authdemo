@@ -3,14 +3,16 @@ package dasniko.authdemo.shop.cart;
 import dasniko.authdemo.shop.products.Product;
 import lombok.Getter;
 
+import java.math.BigDecimal;
+
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
 @Getter
 public class CartEntry {
     private Product product;
     private int count;
-    private double price;
+    private BigDecimal price;
 
     private CartEntry() {}
 
@@ -18,12 +20,12 @@ public class CartEntry {
         CartEntry entry = new CartEntry();
         entry.product = product;
         entry.count = 1;
-        entry.price = product.getPrice() * entry.count;
+        entry.price = product.getPrice();
         return entry;
     }
 
     public void increaseCount() {
         this.count++;
-        this.price = this.count * product.getPrice();
+        this.price = product.getPrice().multiply(BigDecimal.valueOf(this.count));
     }
 }

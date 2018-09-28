@@ -1,22 +1,20 @@
 package dasniko.authdemo.shop.cart;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.keycloak.adapters.springsecurity.client.KeycloakRestTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 
 /**
- * @author Niko Köbler, http://www.n-k.de, @dasniko
+ * @author Niko Köbler, https://www.n-k.de, @dasniko
  */
-@Slf4j
 @Component
 @RequiredArgsConstructor
 public class ShippingService {
 
     private static final String SHIPPING_URL = "http://localhost:8083/shipping";
 
-    private final RestTemplate restTemplate;
+    private final KeycloakRestTemplate restTemplate;
 
     public Double calculateShipping() {
         ResponseEntity<Double> response = restTemplate.getForEntity(SHIPPING_URL, Double.class);
